@@ -8,17 +8,18 @@ export default function App() {
   // string 
   const [name, setName] = useState<string>("a");
 
-  // number
-  const [age, setAge] = useState<number>(45);
-
-  // null , undefined, boolean
-  const test = null;
-
-  //object array
-  const [person, setPerson] = useState({
-    name: "ruagiathi",
-    age: 45
-  });
+  const [todoList, setTodoList] = useState([
+    { id: 1, title: "Learn React Native" },
+    { id: 2, title: "Learn React.JS" },
+    { id: 3, title: "Watching Netflix" },
+    { id: 4, title: "Playing ESport" },
+    { id: 5, title: "Subscribe Kenh Toi" },
+    { id: 6, title: "Watching Movies" },
+    { id: 7, title: "Hoi dap" },
+    { id: 8, title: "Hoi dap" },
+    { id: 9, title: "Hoi dap" },
+    { id: 10, title: "Hoi dap" }
+  ])
 
   return (
     <View style={styles.container}>
@@ -39,17 +40,31 @@ export default function App() {
         <Text style={styles.text}>{name}</Text>
       </View>
 
-      <Button title='Add New' />
+      <Button
+        title='Add New'
+        onPress={() => alert("tap me")}
+      />
 
-      <Text style={styles.text}>Hello World to
-        <Text style={styles.ruagiathi}> Rua Gia Thi</Text>
-      </Text>
+      <View style={{ marginTop: 20, borderColor: "red", borderWidth: 1 }}>
+        {todoList.map(todo => {
+          return (
+            <Text style={styles.todo}> {todo.title}</Text>
+          )
+        })}
+      </View>
 
     </View>
   );
 }
 
 const styles = StyleSheet.create({
+
+  todo: {
+    fontSize: 30,
+    backgroundColor: "pink",
+    marginBottom: 20,
+    padding: 15
+  },
   ruagiathi: {
     color: "green",
   },
@@ -65,5 +80,6 @@ const styles = StyleSheet.create({
     fontSize: 60, color: "red",
     paddingTop: 20,
     paddingHorizontal: 20,
+    marginTop: 50
   },
 });
