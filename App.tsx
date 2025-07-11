@@ -1,12 +1,12 @@
 import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Button, Text, TextInput, View } from 'react-native';
 
 export default function App() {
 
   // data-style
   // string 
-  const [name, setName] = useState<string>("ruagiathi");
+  const [name, setName] = useState<string>("a");
 
   // number
   const [age, setAge] = useState<number>(45);
@@ -23,9 +23,24 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View>
+        <TextInput
+          onChangeText={value => setName(value)}
+          value={name}
+          autoCapitalize='none'
+          autoCorrect={false}
+          //keyboardType='numeric'
+          //maxLength={2}
+          multiline
+          style={{
+            borderColor: "violet",
+            borderWidth: 1,
+            padding: 10
+          }} />
         <Text style={styles.text}>{name}</Text>
-        <Text style={styles.text}>{JSON.stringify(person)}</Text>
       </View>
+
+      <Button title='Add New' />
+
       <Text style={styles.text}>Hello World to
         <Text style={styles.ruagiathi}> Rua Gia Thi</Text>
       </Text>
