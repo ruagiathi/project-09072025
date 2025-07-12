@@ -1,6 +1,6 @@
 
 import { useState } from "react";
-import { View, TextInput, Button, StyleSheet } from "react-native";
+import { View, TextInput, Button, StyleSheet, Alert } from "react-native";
 
 const style = StyleSheet.create({
     todoInput: {
@@ -21,7 +21,24 @@ const InputTodo = (props: IProps) => {
     const [name, setName] = useState<string>("");
 
     const handleAddNewTodo = () => {
+        //validate
+        if (!name) {
+            Alert.alert(
+                "Thông tin không hợp lệ",
+                "Không được để trống",
+                [
+                    {
+                        text: 'Cancel',
+                        onPress: () => console.log('Cancel Pressed'),
+                        style: 'cancel',
+                    },
+                    { text: 'OK', onPress: () => console.log('OK Pressed') },
+                ]
+            )
+            return;
+        }
         addTodo(name);
+        setName("");
     }
 
     return (
