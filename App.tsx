@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { StyleSheet, ScrollView, Button, Text, TextInput, View, FlatList, TouchableWithoutFeedback, Keyboard } from 'react-native';
 import InputTodo from './components/todo/input.todo';
 import ListTodo from './components/todo/list.todo';
+import Flexbox from './components/todo/flexbox';
 
 export default function App() {
 
@@ -23,6 +24,7 @@ export default function App() {
   }
 
   return (
+    //<Flexbox />
     <TouchableWithoutFeedback
       onPress={() => Keyboard.dismiss()}>
       <View style={styles.container}>
